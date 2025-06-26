@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  background: #1c1c22;
+}
+
+.vibe-root {
+  font-family: 'Inter', sans-serif;
+  background-color: #1c1c22;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.vibe-topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 2rem;
+  background-color: #111117;
+  border-bottom: 1px solid #333;
+}
+
+.vibe-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f5f5f5;
+}
+
+.vibe-nav a {
+  margin-left: 1.5rem;
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.vibe-nav a:hover {
+  color: #fff;
+}
+
+.vibe-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: #5e4a4a;
+}
+
+.vibe-hero-left {
+  flex: 1;
+  min-width: 280px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.vibe-hero-right {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-placeholder {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  background-color: #2f2f35;
+  border-radius: 20px;
+  opacity: 0.3;
+}
+
+.vibe-hero-title {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-top: 1rem;
+}
+
+.vibe-hero-sub {
+  font-size: 1.2rem;
+  color: #ffffff;
+  max-width: 600px;
+  margin-bottom: 1rem;
+}
+
+.vibe-hero-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-btn {
+  background: #ffffff;
+  color: #5e4a4a;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.hero-btn.ghost {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.hero-btn:hover {
+  background: #eee;
+  color: #5e4a4a;
+}
+
+.hero-btn.ghost:hover {
+  background: #ffffff;
+  color: #5e4a4a;
+}
+
+.vibe-moods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: #1c1c22;
+}
+
+.vibe-rotate-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.3s ease;
+}
+
+.vibe-rotate-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.vibe-rotate-card .text-content {
+  position: relative;
+  padding: 1.5rem;
+  z-index: 2;
+  color: white;
+}
+
+.vibe-rotate-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.vibe-rotate-card p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.vibe-rotate-card button {
+  background: #ffffff;
+  color: #5e4a4a;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.vibe-about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: #111117;
+  gap: 3rem;
+}
+
+.about-left {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.about-left h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-left p {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.about-right img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.vibe-footer {
+  background-color: #111117;
+  color: #ccc;
+  padding: 2rem;
+  font-size: 0.9rem;
+  margin-top: 4rem;
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-left h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  color: #666;
+}
+
+/* Enhanced button styles for all buttons on the site */
+button,
+.hero-btn,
+.vibe-rotate-card button {
+  background: #ffffff;
+  color: #5e4a4a;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effect: lift and lighten */
+button:hover,
+.hero-btn:hover,
+.vibe-rotate-card button:hover {
+  background: #f2f2f2;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Active effect: press down */
+button:active,
+.hero-btn:active,
+.vibe-rotate-card button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Ghost buttons */
+.hero-btn.ghost {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.hero-btn.ghost:hover {
+  background: #ffffff;
+  color: #5e4a4a;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hero-btn.ghost:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
