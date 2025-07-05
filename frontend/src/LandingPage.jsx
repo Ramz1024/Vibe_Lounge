@@ -1,107 +1,95 @@
 import "./LandingPage.css";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Sidebar from "./SideBar";
+import NavBar from "./NavBar"; // <-- NEW
 
 const moods = [
-  { name: "Happy", desc: "Spread joy and positivity", img: "/images/happy.jpg", link: "/happy" },
-  { name: "Angry", desc: "Let it out, together", img: "/images/angry.jpg", link: "/angry" },
-  { name: "Sleeping", desc: "Relax and unwind", img: "/images/sleeping.jpg", link: "/sleeping" },
-  { name: "Chill", desc: "Settle into mellow vibes", img: "/images/chill.jpg", link: "/chill" },
-  { name: "Sad", desc: "It's okay to feel down", img: "/images/sad.jpg", link: "/sad" },
-  { name: "Studying", desc: "Stay productive together", img: "/images/studying.jpg", link: "/studying" },
-  { name: "Party", desc: "Let’s have some fun!", img: "/images/party.jpg", link: "/party" },
-  { name: "Melancholy", desc: "Quiet moments for thought", img: "/images/melancholy.jpg", link: "/melancholy" },
+  { name: "Happy Room", emoji: "😊", desc: "Spread joy and celebrate life’s beautiful moments together.", tag: "Upbeat • Energetic • Positive", link: "/happy", color: "#ffc947" },
+  { name: "Angry Room", emoji: "😠", desc: "Let it out in a healthy way with people who get it.", tag: "Raw • Honest • Unfiltered", link: "/angry", color: "#ff4e4e" },
+  { name: "Sleeping Room", emoji: "💤", desc: "Unwind, relax, and drift off with soothing vibes.", tag: "Tranquil • Soft • Dreamy", link: "/sleeping", color: "#7ddaff" },
+  { name: "Chill Room", emoji: "😎", desc: "Relax, unwind, and vibe with laid-back sounds.", tag: "Lo-fi • Calm • Peaceful", link: "/chill", color: "#3edbf0" },
+  { name: "Sad Room", emoji: "🥺", desc: "A safe space to feel, heal, and find comfort in shared experiences.", tag: "Melancholy • Supportive • Understanding", link: "/sad", color: "#7068f4" },
+  { name: "Study Room", emoji: "📚", desc: "Focus, learn, and grow with motivated minds.", tag: "Focus • Productive • Motivated", link: "/studying", color: "#f362f2" },
+  { name: "Party Room", emoji: "🎉", desc: "Let’s have some fun and dance it out together!", tag: "Energetic • Loud • Free", link: "/party", color: "#c86ef3" },
+  { name: "Melancholy Room", emoji: "🎭", desc: "A reflective space for your softer moments.", tag: "Thoughtful • Deep • Still", link: "/melancholy", color: "#5451d6" }
 ];
 
 export default function LandingPage() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div className="vibe-root">
-      <div className="vibe-topbar">
-        <div className="vibe-logo">Vibe Room</div>
-        <nav className="vibe-nav">
-          <Link to="/">Home</Link>
-          <Link to="/happy">Rooms</Link>
-          <Link to="/login">Login</Link> {/* Login remains as is */}
-        </nav>
-      </div>
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+      <NavBar onMenuClick={() => setSidebarOpen(true)} /> {/* <-- Replaces header */}
 
       <section className="vibe-hero">
-        <div className="vibe-hero-left">
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="vibe-hero-sub"
-          >
-            Choose a mood and step inside—<br />
-            listen, chat, and find your people in a space that truly gets you.
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="vibe-hero-title"
-          >
-            Feel it. Share it. <br /> Connect now.
-          </motion.h1>
-          <div className="vibe-hero-buttons">
-            <Link to="/signup"><button className="hero-btn">Join now</button></Link> 
-            <Link to="/happy"><button className="hero-btn ghost">Explore rooms</button></Link>
+        <h1>Welcome to <span className="highlight">VibeLounge</span></h1>
+        <p>Your digital safe space where emotions meet community.<br />
+          Enter mood-themed rooms, connect with others, and find your perfect vibe.
+        </p>
+        <div className="vibe-buttons">
+          <Link to="/happy"><button>Enter Your Vibe</button></Link>
+          <Link to="#"><button className="ghost">Learn More</button></Link>
+        </div>
+      </section>
+
+      <section className="vibe-moods-section">
+        <h2>Choose Your Mood</h2>
+        <p>
+          Each room is designed to match your current emotional state. Find your tribe,
+          discover new music, or simply exist in a space that gets you.
+        </p>
+        <div className="vibe-moods">
+          {moods.map(({ name, emoji, desc, tag, link, color }) => (
+            <motion.div key={name} className="mood-card" whileHover={{ scale: 1.05 }} style={{ backgroundColor: color }}>
+              <div className="mood-title">{emoji} {name}</div>
+              <p className="mood-desc">{desc}</p>
+              <p className="mood-tag">{tag}</p>
+              <Link to={link}><button>Join Room</button></Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section className="vibe-why">
+        <h2>Why VibeLounge?</h2>
+        <div className="why-features">
+          <div className="feature-box">
+            <div className="feature-icon">🎯</div>
+            <h3>Emotion-First Design</h3>
+            <p>Every room is crafted to match and support your current emotional state.</p>
           </div>
-        </div>
-        <div className="vibe-hero-right">
-          <div className="hero-image-placeholder" />
-        </div>
-      </section>
-
-      <section className="vibe-moods">
-        {moods.map(({ name, desc, img, link }) => (
-          <motion.div
-            key={name}
-            className="vibe-rotate-card"
-            style={{ backgroundImage: `url(${img})` }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="overlay" />
-            <div className="text-content">
-              <h3>{name}</h3>
-              <p>{desc}</p>
-              <Link to={link}>
-                <button>Join Room</button>
-              </Link>
-            </div>
-          </motion.div>
-        ))}
-      </section>
-
-      <section className="vibe-about">
-        <div className="about-left">
-          <h2>Your mood, your room, your people</h2>
-          <p>
-            Step into a space that feels just right for you. Explore rooms that match your mood,
-            connect with others who understand, and let music and conversation lift you up—no pressure, just good vibes.
-          </p>
-        </div>
-        <div className="about-right">
-          <img src="/images/hero.jpg" alt="Hero Art" />
+          <div className="feature-box">
+            <div className="feature-icon">🔐</div>
+            <h3>Safe & Anonymous</h3>
+            <p>Express yourself freely in a judgment-free, anonymous environment.</p>
+          </div>
+          <div className="feature-box">
+            <div className="feature-icon">🎵</div>
+            <h3>Curated Soundscapes</h3>
+            <p>Discover music that perfectly matches your mood and emotional journey.</p>
+          </div>
         </div>
       </section>
 
       <footer className="vibe-footer">
-        <div className="footer-content">
-          <div className="footer-left">
-            <h3>Vibe Room</h3>
-            <p>Find your vibe, feel the connection.</p>
-          </div>
-          <div className="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-            <a href="#">Contact</a>
-          </div>
-        </div>
+        <p>Ready to Find Your Vibe?</p>
+        <h3>Join thousands of others who've found their emotional home at VibeLounge.</h3>
+        <Link to="/signup"><button>Start Your Journey</button></Link>
+
         <div className="footer-bottom">
-          &copy; {new Date().getFullYear()} Vibe Room. All rights reserved.
+          <div className="footer-logo">VibeLounge</div>
+          <div className="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Support</a>
+          </div>
+          <p className="copyright">
+            © 2024 VibeLounge. Your emotions, your space, your community.
+          </p>
         </div>
       </footer>
     </div>

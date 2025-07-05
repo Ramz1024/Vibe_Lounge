@@ -1,0 +1,91 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(180deg, #111827, #1f2937);
+  color: white;
+  padding: 1rem 1.2rem;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.sidebar-section {
+  margin-bottom: 1rem;
+}
+
+.sidebar-section h4 {
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #a5b4fc;
+  padding-left: 0.25rem; /* Slight left alignment */
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem; /* Ensures emoji and text align cleanly */
+}
+
+.sidebar-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-section li {
+  margin-bottom: 0.9rem;
+}
+
+.sidebar-section a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-section a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.sidebar-divider {
+  border-top: 1px solid #374151;
+  margin: 0.8rem 0;
+}
+
+.sidebar-section + .sidebar-section {
+  margin-top: 0.5rem; /* additional breathing space if needed */
+}
