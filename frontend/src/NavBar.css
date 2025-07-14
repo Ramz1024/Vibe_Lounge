@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #1c1c22;
+  color: #fff;
+}
+
+.vibe-root {
+  min-height: 100vh;
+}
+
+/* Navbar */
 .vibe-navbar {
   background-color: #000;
   padding: 0.6rem 1rem;
@@ -17,7 +31,7 @@
 .left-nav {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* keeps hamburger and logo close */
+  gap: 0.5rem;
 }
 
 .hamburger {
@@ -26,7 +40,7 @@
   border: none;
   color: white;
   cursor: pointer;
-  margin: 0; /* removes unnecessary space */
+  margin: 0;
 }
 
 .vibe-logo {
@@ -61,4 +75,244 @@
   background-color: #e879f9;
   color: black;
   font-weight: 600;
+}
+
+/* Hero Section */
+.vibe-hero {
+  background: linear-gradient(135deg, #5e4aef, #a55ef8);
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+}
+
+.vibe-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.vibe-hero .highlight {
+  color: #f289ff;
+}
+
+.vibe-hero p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.vibe-buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.vibe-buttons button {
+  background: #f15cff;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vibe-buttons .ghost {
+  background: transparent;
+  border: 2px solid white;
+}
+
+.vibe-buttons button:hover {
+  background: #fff;
+  color: #5e4aef;
+}
+
+/* Mood Section */
+.vibe-moods-section {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  background: #000;
+}
+
+.vibe-moods-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.vibe-moods-section p {
+  color: #bbb;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.vibe-moods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.mood-card {
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.mood-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.mood-desc {
+  color: #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.mood-tag {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.mood-card button {
+  margin-top: 1rem;
+  background: white;
+  color: #333;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Footer Section */
+.vibe-footer {
+  text-align: center;
+  background: linear-gradient(135deg, #8a38d2, #e943cc);
+  padding: 4rem 2rem;
+  color: white;
+  margin-top: 3rem;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+}
+
+.vibe-footer h3 {
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
+
+.vibe-footer button {
+  background: white;
+  color: #5e4aef;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #eee;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-logo {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* Why VibeLounge Section */
+.vibe-why {
+  background: #0e0e15;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.vibe-why h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.why-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.feature-box {
+  max-width: 250px;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-box p {
+  color: #ccc;
+}
+
+/* Responsive Tweaks */
+@media screen and (max-width: 768px) {
+  .vibe-hero h1 {
+    font-size: 2rem;
+  }
+
+  .vibe-hero p {
+    font-size: 1rem;
+  }
+
+  .vibe-buttons button {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .vibe-moods-section h2,
+  .vibe-why h2 {
+    font-size: 1.6rem;
+  }
+
+  .mood-title,
+  .feature-box h3 {
+    font-size: 1rem;
+  }
+
+  .vibe-footer h3 {
+    font-size: 1.1rem;
+  }
+
+  .vibe-footer button {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .vibe-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 }

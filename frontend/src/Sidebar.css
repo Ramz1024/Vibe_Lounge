@@ -46,11 +46,11 @@
   font-weight: 600;
   margin-bottom: 0.8rem;
   color: #a5b4fc;
-  padding-left: 0.25rem; /* Slight left alignment */
+  padding-left: 0.25rem;
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  gap: 0.4rem; /* Ensures emoji and text align cleanly */
+  gap: 0.4rem;
 }
 
 .sidebar-section ul {
@@ -87,5 +87,26 @@
 }
 
 .sidebar-section + .sidebar-section {
-  margin-top: 0.5rem; /* additional breathing space if needed */
+  margin-top: 0.5rem;
+}
+
+/* Responsive Behavior */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+    padding: 0.8rem 1rem;
+  }
+
+  .sidebar-header {
+    font-size: 1rem;
+  }
+
+  .sidebar-section h4 {
+    font-size: 0.75rem;
+  }
+
+  .sidebar-section a {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.7rem;
+  }
 }
