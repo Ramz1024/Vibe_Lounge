@@ -24,7 +24,12 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 const userRoutes = require('./routes/userRoutes');
-app.use('/', userRoutes); // default route
+const adminRoutes = require('./routes/adminRoutes');
+const chatRoutes = require('./routes/chatRoutes');
+
+app.use('/', userRoutes);       // user routes (register, login)
+app.use('/admin', adminRoutes); // admin routes
+app.use('/chat', chatRoutes);   // chat routes
 
 // Base test route
 app.get('/', (req, res) => {
