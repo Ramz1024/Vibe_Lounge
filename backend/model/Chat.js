@@ -17,6 +17,7 @@ const chatMessageSchema = new mongoose.Schema({
   timestamp: {
     type: Date,
     default: Date.now,
+    expires: 86400    // Used this for deleting the messages from database.
   }
 });
 
