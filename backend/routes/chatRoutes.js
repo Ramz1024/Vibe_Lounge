@@ -5,7 +5,7 @@ const router = express.Router();
 const { postChatMessage, getChatMessages } = require('../controller/chatController');
 
 // Post a new chat message (only for registered users)
-router.post('/chat', postChatMessage);
+router.post('/sendMessage', postChatMessage);
 
 // Get all chat messages
 router.get('/chat', getChatMessages);
