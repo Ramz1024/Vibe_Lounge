@@ -36,8 +36,20 @@ const userSchema = new mongoose.Schema({
     },
     role:{
         type: String,
-        enum: ['admin', 'user', 'ban', 'deleted'],
+        enum: ['admin', 'user'],
         default: 'user'
+    },
+    banned: {
+        type: Boolean,
+        default: false
+    },
+    deleted:{
+        type: Boolean,
+        default: false
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 },{timestamps: true});
 
