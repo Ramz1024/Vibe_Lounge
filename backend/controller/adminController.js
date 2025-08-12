@@ -19,4 +19,14 @@ const getFilteredUsers = async(req, res) =>{
     }
 };
 
+const updateUserStatus = async(req, res) =>{
+    const {userId, role, banned, deleted} = req.query;
+
+    const updateRoleOrStatus = {};
+
+     if(role) filter.role = role;
+    if(banned) filter.banned = banned === 'true';
+    if(deleted) filter.deleted = deleted === 'true';
+};
+
 module.exports = {getFilteredUsers};
