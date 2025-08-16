@@ -26,10 +26,14 @@ mongoose.connect(process.env.MONGO_URI, {
 const userRoutes = require('./routes/userRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const chatRoutes = require('./routes/chatRoutes');
+const imageRoutes = require('./routes/imageRoutes');
 
 app.use('/', userRoutes);       // user routes (register, login)
 app.use('/admin', adminRoutes); // admin routes
 app.use('/chat', chatRoutes);   // chat routes
+app.use('/images', express.static('uploads')); // Serve static images
+app.use('/', imageRoutes);
+
 
 // Base test route
 app.get('/', (req, res) => {
@@ -40,3 +44,5 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+
+
