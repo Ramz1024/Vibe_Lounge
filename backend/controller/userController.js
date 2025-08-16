@@ -20,6 +20,13 @@ const registerUser = async (req, res) => {
       return res.status(400).json({ message: 'Email already registered' });
     }
 
+    // Check if nickname already exists
+
+    const existingNickname = await User.findOne({ nickname });
+      if (existingNickname) {
+        return res.status(400).json({ message: 'Nickname already taken' });
+      }
+
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -57,7 +64,7 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
 
-    if (user.ban) {
+    if (user.banned) {
       return res.status(403).json({ message: 'User is banned' });
     }
 
@@ -67,7 +74,11 @@ const loginUser = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { userId: user._id },
+      { userId: user._id,
+        role: user.role,
+        banned: user.banned,
+        deleted: user.deleted
+       },
       process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
