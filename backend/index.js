@@ -3,6 +3,11 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
+// Routes
+const userRoutes = require('./routes/userRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const chatRoutes = require('./routes/chatRoutes');
+
 dotenv.config(); // Load .env variables
 
 const app = express();
@@ -21,11 +26,6 @@ mongoose.connect(process.env.MONGO_URI, {
 .catch(err => {
   console.error("MongoDB connection failed:", err.message);
 });
-
-// Routes
-const userRoutes = require('./routes/userRoutes');
-const adminRoutes = require('./routes/adminRoutes');
-const chatRoutes = require('./routes/chatRoutes');
 
 app.use('/', userRoutes);       // user routes (register, login)
 app.use('/admin', adminRoutes); // admin routes
