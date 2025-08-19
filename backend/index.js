@@ -32,7 +32,7 @@ app.use('/admin', adminRoutes); // admin routes
 app.use('/chat', chatRoutes);   // chat routes
 
 // Base test route
-app.get('/', (req, res) => {
+app.get('/status', (req, res) => {
   res.send('Server is running!');
 });
 
