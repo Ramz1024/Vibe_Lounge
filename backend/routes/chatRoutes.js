@@ -8,6 +8,6 @@ const { postChatMessage, getChatMessages } = require('../controller/chatControll
 router.post('/sendMessage', postChatMessage);
 
 // Get all chat messages
-router.get('/chat', getChatMessages);
+router.get('/chat/:room', getChatMessages);
 
 module.exports = router;

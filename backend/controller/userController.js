@@ -22,7 +22,7 @@ const registerUser = async (req, res) => {
 
     // Check if nickname already exists
 
-    const existingNickname = await User.findOne({ nickname });
+    const existingNickname = await User.findOne({ nickname: nickname.trim() });
       if (existingNickname) {
         return res.status(400).json({ message: 'Nickname already taken' });
       }
@@ -33,9 +33,9 @@ const registerUser = async (req, res) => {
     // Create new user
     const newUser = new User({
       name,
-      email,
+      email: email.toLowerCase().trim(),
       password: hashedPassword,
-      nickname,
+      nickname: nickname.trim(),
       dateOfBirth,
       region,
       gender
@@ -59,7 +59,7 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: 'Please provide email and password' });
     }
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: email.toLowerCase().trim() });
     if (!user) {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
