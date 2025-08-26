@@ -39,6 +39,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .vibe-buttons button {
@@ -161,6 +162,7 @@ body {
   justify-content: center;
   gap: 2rem;
   margin: 1rem 0;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -208,4 +210,37 @@ body {
 
 .feature-box p {
   color: #ccc;
+}
+
+/* Responsive Tweaks */
+@media screen and (max-width: 768px) {
+  .vibe-hero h1 {
+    font-size: 2rem;
+  }
+
+  .vibe-hero p {
+    font-size: 1rem;
+  }
+
+  .vibe-buttons button {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .vibe-moods-section h2,
+  .vibe-why h2 {
+    font-size: 1.6rem;
+  }
+
+  .mood-title,
+  .feature-box h3 {
+    font-size: 1rem;
+  }
+
+  .vibe-footer h3 {
+    font-size: 1.1rem;
+  }
+
+  .vibe-footer button {
+    padding: 0.6rem 1.2rem;
+  }
 }
