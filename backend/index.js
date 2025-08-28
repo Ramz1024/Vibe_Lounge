@@ -43,8 +43,9 @@ app.get("/", (req, res) => {
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: "http://localhost:5173",
     methods: ["GET", "POST"],
+    credentials: true
   },
 });
 
@@ -59,6 +60,11 @@ io.on("connection", (socket) => {
     console.log(`User ${socket.id} joined in room ${room}`);
   });
 
+  socket.on("send_message", (data)=>{
+    console.log("Message received from client: ", data);
+    io.to(data.room).emit("receive_message", data);
+  });
+  
   socket.on("disconnect", () => {
     // on exit
     console.log("User disconnected:", socket.id);
