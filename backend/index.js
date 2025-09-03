@@ -4,6 +4,11 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
+// Routes
+const userRoutes = require('./routes/userRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const chatRoutes = require('./routes/chatRoutes');
+
 dotenv.config(); // Load .env variables
 
 const app = express();
@@ -24,6 +29,7 @@ mongoose
   .catch((err) => {
     console.error("MongoDB connection failed:", err.message);
   });
+
 
 // Routes
 const userRoutes = require("./routes/userRoutes");
@@ -69,6 +75,14 @@ io.on("connection", (socket) => {
     // on exit
     console.log("User disconnected:", socket.id);
   });
+
+app.use('/', userRoutes);       // user routes (register, login)
+app.use('/admin', adminRoutes); // admin routes
+app.use('/chat', chatRoutes);   // chat routes
+
+// Base test route
+app.get('/status', (req, res) => {
+  res.send('Server is running!');
 });
 
 // Start server
