@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./SideBar.css";
+import "./Sidebar.css";
 
 export default function SideBar({ isOpen, onClose }) {
   return (
