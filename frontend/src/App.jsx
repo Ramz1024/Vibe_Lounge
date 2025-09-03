@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './LandingPage';
-import Login from './Login';
+import Login from './login';
 import Signup from './signup';
 import HappyRoom from './HappyRoom';
 import AngryRoom from './AngryRoom';
